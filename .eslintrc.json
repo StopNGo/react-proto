@@ -1,0 +1,69 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "xo"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "ignorePatterns": ["dist", "node_modules"],
+    "rules": {
+        "indent": [
+            "error",
+            2,
+            { "SwitchCase": 1 }],
+        "object-curly-spacing": ["error", "always"],
+        /*
+          To avoid using non-Latin characters in variable names.
+          E.g. 'C' in Latin and 'С' in cyrillic are different symbols with different codes.
+          Use regex for your keyboard layout.
+          Default: cyrillic/ukrainian/russian
+        */
+        "id-match": ["error", "^((?![а-яА-Я,ґҐ,іІ,їЇ,ёЁ]).)*$"],
+        /*
+          tsconfig 'compilerOptions: { "jsx": "react-jsx" }' allows to not use 'import React from "react"'
+          for using JSX syntax. Turning off eslint error also.
+        */
+        "react/react-in-jsx-scope": "off",
+        /*
+          To avoid false-positive unused-vars in enum need to switch from core eslint to ts-eslint
+          https://github.com/typescript-eslint/typescript-eslint/issues/2621
+        */
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        /*
+          Normolize tag spacing in jsx
+        */
+        "react/jsx-tag-spacing": ["error", {
+          "closingSlash": "never",
+          "beforeSelfClosing": "always",
+          "afterOpening": "never",
+          "beforeClosing": "never"
+        }],
+        "react/jsx-curly-spacing": ["error",
+          { "when": "never",
+            "attributes": true,
+            "children": true
+          }]
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+}

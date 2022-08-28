@@ -1,0 +1,19 @@
+.offline {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px;
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius-small);
+  color: var(---secondary-color);
+  text-transform: uppercase;
+  transition: all .3s ease-out;
+}
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0;
+}

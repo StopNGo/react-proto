@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es2021",
+    ],
+    "module": "esnext",
+    "target": "es2015",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "paths": {
+      "*": [
+        "./src/*",
+        "./*"
+      ],
+      "_webpack/*": [
+        "webpack/*"
+      ],
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+      }
+    ]
+  },
+  "ts-node": {
+    "compilerOptions": { "module": "commonjs" }
+  },
+  "include": [
+    "src",
+    "webpack",
+    "webpack.config.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.js",
+  ],
+}

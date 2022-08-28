@@ -1,0 +1,67 @@
+.switcher {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius-small);
+}
+
+.switcher input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius-small);
+  content: '';
+  transition: .4s;
+}
+
+.switcher.checked {
+  background-color: var(--secondary-color);
+}
+
+.switcher.checked .slider:before {
+  background-color: var(--main-bg-color);
+  transform: translateX(26px);
+}
+
+// Accessibility outline on switcher, because native checkbox is transperent
+.switcher input:focus-visible ~ .slider {
+  outline-style: auto;
+}
+
+.icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icons svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--primary-color);
+}
