@@ -68,7 +68,10 @@ Linters:
 
 Tests:
 
-- *coming soon*
+- **Jest** 29+
+- **React Testing Library**
+- Utility for Redux Testing
+- One example of integration test of a component with user event and Redux
 
 Other:
 
@@ -134,6 +137,18 @@ This boilerplate includes a simple application with:
 
   `npm run build:static`
 
+### Updating packages
+
+All packages in this project are pinned to latest versions at the time of publishing to exclude version-based conflicts and errors and to guarantee proper work of the code in this repository.
+
+If you want to update packages, do next:
+
+```
+npm install -g npm-check-updates
+ncu -u
+npm i
+```
+
 ## Basic App Configuration
 
 All configuration is available in files with constants:
@@ -148,11 +163,15 @@ All configuration is available in files with constants:
 
 One of the goals of this project is to provide some common soultions in React development and to clarify why they were chosen and how they work. So, such information will be present in this documentation in an orderly fashion.
 
+## Changes
+
+Detailed release notes for a given version can be found on [releases page](https://github.com/StopNGo/react-proto/releases).
+
 ## Feedback
 
 I welcome any feedbacks, suggestions and questions related to this project.
 
-You can leave them [here](https://github.com/StopNGo/react-proto/issues).
+You can leave them on [issues](https://github.com/StopNGo/react-proto/issues) or [discussions](https://github.com/StopNGo/react-proto/discussions) pages.
 
 ![Thank you!](http://media.riffsy.com/images/26d31721af290a7e42eae0498a4730a5/tenor.gif)
 
