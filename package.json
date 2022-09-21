@@ -1,9 +1,13 @@
 {
   "name": "react-proto",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React TypeScript Boilerplate",
   "author": "Max L Stop&Go",
   "license": "ISC",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "scripts": {
     "clean": "rimraf dist",
     "start:webpack": "cross-env NODE_ENV=development webpack --mode=development",
@@ -22,6 +26,7 @@
     "@svgr/webpack": "6.3.1",
     "@swc/core": "1.3.1",
     "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/preact": "3.2.2",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
     "@types/compression": "1.7.2",
@@ -99,6 +104,7 @@
     "cookie-parser": "1.4.6",
     "helmet-csp": "3.4.0",
     "identity-obj-proxy": "3.0.0",
+    "preact": "10.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.1.0",

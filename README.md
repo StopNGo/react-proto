@@ -33,7 +33,7 @@ Thus, the goal of this project is to **collect in one place all the most common 
 
 Core:
 
-- **React** 18+ (**preact** as an option *coming soon*)
+- **React** 18+ (**Preact** 10+ as an option, see [comparison](#react-vs-preact) below)
 - **webpack** 5+ (with optional **SWC** support and SSR or static build)
 - **TypeScript** (with strict rules, including  webpack configuration)
 
@@ -75,11 +75,12 @@ Tests:
 
 Other:
 
-- API request caching (powerd by RTK Query)
+- API request caching (powered by RTK Query)
 - Hot reload (including state, style and server code hot reloading)
-- VSCode support with error higlight and on save fixes
+- VSCode support with error highlight and on save fixes
 - Script for fast component creation
 - Optional Service worker and offline status detector
+- Webpack Bundle Analyzer
 
 ## The App
 
@@ -91,7 +92,7 @@ This boilerplate includes a simple application with:
 - One of the components is dynamically loaded
 - API requests
 - Loading spinner
-- Theme swithcer (light and dark)
+- Theme switcher (light and dark)
 - Offline detector
 
 ![The App](src/assets/images/app.gif)
@@ -154,14 +155,26 @@ npm i
 All configuration is available in files with constants:
 
 - `webpack\constants.ts` - contains working directories, SWC option and other related to bundling staff
-- `src\constants` - a directory with app configuration constants files
-- `src\server\constants.ts` - contains server port and render to stream options
+- `src\constants` - a directory with app files with configuration constants
+- `src\server\constants.ts` - contains a server port and render to stream options
+
+### React vs Preact
+
+In `webpack\constants.ts` you can choose to use [Preact](https://preactjs.com/) library instead React itself (`IS_PREACT` boolean constant).
+
+
+Preact is a fast and compact React-compatible Virtual DOM library. But because its community is much smaller, you can face with some incompatibility with React API and functionality, especially with new ones. Also some tests show some frame drops during moving a lot of elements. Below you can see a bundle size comparison of no-SSR version of the sample application of this repository (according to Webpack Bundle Analyzer):
+
+|    |  React  | Preact   |
+|----|----|----|
+|  Parsed  |  263.77 KB  |  149.29 KB  |
+|  Gzipped |  86.14 KB  |  50.38 KB  |
 
 ## Documentation
 
 *Coming soon.*
 
-One of the goals of this project is to provide some common soultions in React development and to clarify why they were chosen and how they work. So, such information will be present in this documentation in an orderly fashion.
+One of the goals of this project is to provide some common solutions in React development and to clarify why they were chosen and how they work. So, such information will be present in this documentation in an orderly fashion.
 
 ## Changes
 

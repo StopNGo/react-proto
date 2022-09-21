@@ -15,6 +15,7 @@ const Menu: FC<IMenu> = ({ className }): ReactElement => (
   <nav className={cn(styles.menu, className)}>
     <NavLink
       to={ROUTE_CONSTANTS.HOME}
+      end
       className={({ isActive }) =>
         isActive ? cn(styles.item, styles['item-active']) : styles.item
       }
