@@ -12,6 +12,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { ALIAS, DEV_SERVER_PORT, DIST_DIR, IS_DEV, SRC_DIR } from './constants';
 import * as Loaders from './loaders';
 
+const withReport = Boolean(process.env.npm_config_withReport);
+
 const entry: string[] = [
   path.resolve(SRC_DIR, 'index.tsx'),
   ...(IS_DEV ? [
@@ -48,7 +50,7 @@ const plugins: WebpackPluginInstance[] = [
     new ReactRefreshWebpackPlugin(),
   ] : [
     new CssoWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({ analyzerMode: withReport ? 'server' : 'disabled' }),
   ]),
 ];
 

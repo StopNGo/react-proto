@@ -95,6 +95,11 @@ This boilerplate includes a simple application with:
 - Theme switcher (light and dark)
 - Offline detector
 
+Live preview:
+[https://react-proto.onrender.com/](https://react-proto.onrender.com/)
+
+(due to free hosting, a cold start could be slow)
+
 ![The App](src/assets/images/app.gif)
 
 ## How to Use
@@ -104,12 +109,15 @@ This boilerplate includes a simple application with:
 1. Clone this repo:
 
    `git clone https://github.com/StopNGo/react-proto`
+
 2. Install all packages:
 
    `npm i`
+
 3. Run project in a development mode:
 
    `npm start`
+
 4. Open your browser with the next address:
 
    `http://localhost:8080/`
@@ -118,13 +126,19 @@ This boilerplate includes a simple application with:
 
 1. Build the project (production bundle will be in the `"dist"` folder):
 
-   `npm run build`
+    `npm run build`
+
+    or with Webpack Bundle Analyzer report server:
+
+    `npm run build:report`
+
 2. Run a server:
 
-   `npm run run`
+    `npm run run`
+
 3. You can test the server locally:
 
-   `http://localhost:3000/`
+    `http://localhost:3000/`
 
 ### Static development mode with hot reload
 
@@ -137,6 +151,10 @@ This boilerplate includes a simple application with:
 - Run the next command and get a production bundle in the `"dist"` folder:
 
   `npm run build:static`
+
+  or with Webpack Bundle Analyzer report server:
+
+  `npm run build:static:report`
 
 ### Updating packages
 
