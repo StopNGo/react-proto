@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 
 import { App } from 'src/App';
 import { ROUTE_CONSTANTS } from 'constants/routeConstants';
+import { apiRequest } from 'server/middlewares';
 import { getHtmlTemplate } from 'server/template';
 import { IS_RENDER_TO_STREAM } from 'server/constants';
 
@@ -26,8 +27,21 @@ RequestHandler => async (req: Request, res: Response) => {
 
   const location: string = req.url;
 
-  const preloadState: Partial<RootState> = { counter: { value: 42 } };
-  const store = initStore(preloadState);
+  let preloadedState: Partial<RootState> = { counter: { value: 42 } };
+  const store = initStore(preloadedState);
+
+  /*
+  Prefetching with RTK Query:
+  - Get data;
+  - Put it into the store;
+  - Set the store as a preloaded state;
+  - Use this store during SSR and for client hydration;
+  - Prefetched data will be taken from RTK Query cache in the store.
+  Note: Why not just get data during SSR?
+  Because rendering will be done before resolving the request Promise.
+  */
+  await apiRequest(store);
+  preloadedState = { ...store.getState() };
 
   const helmetContext = {};
 
@@ -41,10 +55,6 @@ RequestHandler => async (req: Request, res: Response) => {
     </Provider>
   );
 
-  const pageIsAvailable = (Object.values(ROUTE_CONSTANTS) as string[]).includes(
-    req.path,
-  );
-
   if (IS_RENDER_TO_STREAM) {
     await getDataFromTree(jsx);
 
@@ -52,14 +62,13 @@ RequestHandler => async (req: Request, res: Response) => {
 
     const { header, footer } = getHtmlTemplate(
       {
-        preloadState,
+        preloadedState,
         helmetData: helmet,
         scriptTags: chunkExtractor.getScriptTags({ nonce: res.locals.cspNonce }),
         styleTags: chunkExtractor.getStyleTags(),
         nonce: res.locals.cspNonce,
       });
 
-    res.status(pageIsAvailable ? 200 : 404);
     res.write(header);
     let didError = false;
     const stream = renderToPipeableStream(
@@ -84,7 +93,7 @@ RequestHandler => async (req: Request, res: Response) => {
 
     const { header, footer } = getHtmlTemplate(
       {
-        preloadState,
+        preloadedState,
         helmetData: helmet,
         scriptTags: chunkExtractor.getScriptTags(),
         styleTags: chunkExtractor.getStyleTags(),
@@ -92,7 +101,6 @@ RequestHandler => async (req: Request, res: Response) => {
       });
 
     res
-      .status(pageIsAvailable ? 200 : 404)
       .send(header + reactHtml + footer);
   }
 };

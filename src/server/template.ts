@@ -8,7 +8,7 @@ type TTemplate = {
 }
 
 export const getHtmlTemplate = (props: {
-  preloadState: Partial<RootState>,
+  preloadedState: Partial<RootState>,
   helmetData: HelmetServerState,
   scriptTags: string,
   styleTags: string,
@@ -32,7 +32,7 @@ export const getHtmlTemplate = (props: {
           </noscript>
           <div id="root">`,
   footer: `</div>
-          <script nonce="${props.nonce}">window.__PRELOADED_STATE__ = ${serialize(props.preloadState)}</script>
+          <script nonce="${props.nonce}">window.__PRELOADED_STATE__ = ${serialize(props.preloadedState)}</script>
           ${props.scriptTags}
         </body>
       </html>

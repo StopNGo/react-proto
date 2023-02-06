@@ -1,4 +1,5 @@
 import path from 'path';
+import 'cross-fetch/polyfill';
 import express, { RequestHandler } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';

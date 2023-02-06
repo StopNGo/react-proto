@@ -14,3 +14,4 @@ interface Window {
 }
 
 declare const NO_SSR: boolean;
+

@@ -2,6 +2,8 @@
 import { FC, ReactElement } from 'react';
 import cn from 'classnames';
 
+import { Image } from 'components';
+
 import styles from './pokemonCard.module.scss';
 
 interface IPokemonCard {
@@ -12,7 +14,7 @@ interface IPokemonCard {
 
 const PokemonCard: FC<IPokemonCard> = ({ className, name, sprite }): ReactElement => (
   <div className={cn(className, styles.frame)}>
-    <img src={sprite} className={styles.sprite} />
+    <Image src={sprite} className={styles.sprite} withLoader={true} />
     <div className={styles.name}>{name}</div>
   </div>
 );

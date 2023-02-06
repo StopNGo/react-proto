@@ -43,7 +43,7 @@ SSR:
 
 State:
 
-- **Redux** 4+ (**ModX** as an option *coming soon*)
+- **Redux** 4+
 
 Router:
 
@@ -76,6 +76,7 @@ Tests:
 Other:
 
 - API request caching (powered by RTK Query)
+- Data prefetching on server side
 - Hot reload (including state, style and server code hot reloading)
 - VSCode support with error highlight and on save fixes
 - Script for fast component creation
@@ -185,8 +186,8 @@ Preact is a fast and compact React-compatible Virtual DOM library. But because i
 
 |    |  React  | Preact   |
 |----|----|----|
-|  Parsed  |  263.77 KB  |  149.29 KB  |
-|  Gzipped |  86.14 KB  |  50.38 KB  |
+|  Parsed  |  274.25 KB  |  159.7 KB  |
+|  Gzipped |  89.58 KB  |  53.88 KB  |
 
 ## Documentation
 
