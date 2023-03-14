@@ -1,82 +1,16 @@
 {
   "extends": [
+    "stylelint-config-standard-scss",
     "stylelint-config-idiomatic-order"
   ],
   "plugins": [
-    "stylelint-scss"
+    "stylelint-use-nesting"
   ],
   "rules": {
-    "string-quotes": "single",
-    "declaration-no-important": true,
-    "declaration-block-single-line-max-declarations": 1,
-    "block-closing-brace-empty-line-before": "never",
-    "block-closing-brace-newline-after": "always",
-    "block-closing-brace-newline-before": "always",
-    "block-opening-brace-newline-after": "always",
-    "block-opening-brace-space-before": "always",
-    "color-hex-case": "lower",
-    "color-hex-length": "short",
-    "declaration-empty-line-before": "never",
-    "declaration-colon-space-before": "never",
-    "declaration-colon-space-after": "always",
-    "declaration-block-semicolon-newline-after": "always",
-    "media-feature-colon-space-before": "never",
-    "media-feature-colon-space-after": "always",
-    "media-feature-range-operator-space-after": "always",
-    "media-feature-range-operator-space-before": "always",
-    "rule-empty-line-before": [
-      "always",
-      {
-        "ignore": [
-          "after-comment",
-          "first-nested",
-          "inside-block"
-        ]
-      }
-    ],
-    "at-rule-empty-line-before": [
-      "always",
-      {
-        "except": [
-          "first-nested"
-        ]
-      }
-    ],
-    "at-rule-name-case": "lower",
-    "at-rule-name-space-after": "always",
-    "at-rule-semicolon-newline-after": "always",
-    "at-rule-semicolon-space-before": "never",
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
-    "max-empty-lines": 1,
-    "value-list-comma-space-before": "never",
-    "value-list-comma-space-after": "always",
-    "selector-combinator-space-after": "always",
-    "selector-combinator-space-before": "always",
-    "selector-descendant-combinator-no-non-space": true,
-    "selector-pseudo-class-case": "lower",
-    "selector-pseudo-element-case": "lower",
-    "selector-type-case": "lower",
-    "selector-list-comma-newline-after": "always",
-    "selector-list-comma-space-before": "never",
-    "length-zero-no-unit": true,
-    "property-case": "lower",
-    "unit-case": "lower",
-    "value-list-max-empty-lines": 0,
-    "indentation": 2,
-    "no-eol-whitespace": true,
-    "no-missing-end-of-source-newline": true,
-    "no-empty-first-line": true
+    "max-nesting-depth": 3,
+    "declaration-property-value-no-unknown": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "csstools/use-nesting": "always"
   },
-  "overrides": [
-    {
-      "files": [
-        "**/*.scss"
-      ],
-      "customSyntax": "postcss-scss"
-    }
-  ],
-  "ignoreFiles": [
-    "dist/*.css"
-  ]
+  "ignoreFiles": ["dist/**/*.*", "coverage/**/*.*"]
 }

@@ -5,9 +5,9 @@
   padding: 10px;
   border-radius: var(--border-radius-small);
   background-color: var(--main-bg-color);
-  color: var(---secondary-color);
+  color: var(--secondary-color);
   text-transform: uppercase;
-  transition: all .3s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 
 .show {

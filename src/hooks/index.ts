@@ -1,1 +1,1 @@
-export { useOnlineStatus } from 'hooks/useOnlineStatus/useOnlineStatus';
+export { useOnlineStatus } from 'hooks/useOnlineStatus/useOnlineStatus'

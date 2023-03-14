@@ -5,12 +5,12 @@
   height: 34px;
   border-radius: var(--border-radius-small);
   background-color: var(--main-bg-color);
-}
 
-.switcher input {
-  width: 0;
-  height: 0;
-  opacity: 0;
+  input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
 }
 
 .slider {
@@ -20,28 +20,28 @@
   bottom: 0;
   left: 0;
   cursor: pointer;
-  transition: .4s;
-}
+  transition: 0.4s;
 
-.slider:before {
-  position: absolute;
-  bottom: 4px;
-  left: 4px;
-  width: 26px;
-  height: 26px;
-  border-radius: var(--border-radius-small);
-  background-color: var(--secondary-color);
-  content: '';
-  transition: .4s;
+  &::before {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 26px;
+    height: 26px;
+    border-radius: var(--border-radius-small);
+    background-color: var(--secondary-color);
+    content: '';
+    transition: 0.4s;
+  }
 }
 
 .switcher.checked {
   background-color: var(--secondary-color);
-}
 
-.switcher.checked .slider:before {
-  background-color: var(--main-bg-color);
-  transform: translateX(26px);
+  .slider::before {
+    background-color: var(--main-bg-color);
+    transform: translateX(26px);
+  }
 }
 
 // Accessibility outline on switcher, because native checkbox is transperent
@@ -58,10 +58,10 @@
   height: 100%;
   align-items: center;
   justify-content: space-around;
-}
 
-.icons svg {
-  width: 22px;
-  height: 22px;
-  fill: var(--primary-color);
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--primary-color);
+  }
 }

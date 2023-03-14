@@ -1,30 +1,34 @@
+import { FC, ReactElement, ReactNode, useState, useEffect } from 'react'
 
-import { FC, ReactElement, ReactNode, useState, useEffect } from 'react';
-
-import { Spinner } from 'components';
+import { Spinner } from 'components'
 
 interface IWithSpinner {
-  isSpinnerShown: boolean;
-  isShadowLoading?: boolean;
-  minTimeSpinnerShown?: number;
-  children?: ReactNode | ReactNode[];
+  isSpinnerShown: boolean
+  isShadowLoading?: boolean
+  minTimeSpinnerShown?: number
+  children?: ReactNode | ReactNode[]
 }
 
-const WithSpinner: FC<IWithSpinner> = ({ children, isSpinnerShown = false, isShadowLoading = false, minTimeSpinnerShown }): ReactElement => {
-  const [showSpinner, setShowSpinner] = useState(false);
+const WithSpinner: FC<IWithSpinner> = ({
+  children,
+  isSpinnerShown = false,
+  isShadowLoading = false,
+  minTimeSpinnerShown
+}): ReactElement => {
+  const [showSpinner, setShowSpinner] = useState(false)
 
   useEffect(() => {
-    if (minTimeSpinnerShown) {
+    if (minTimeSpinnerShown != null) {
       if (isSpinnerShown && !showSpinner) {
-        setShowSpinner(true);
+        setShowSpinner(true)
         setTimeout(() => {
-          setShowSpinner(false);
-        }, minTimeSpinnerShown);
+          setShowSpinner(false)
+        }, minTimeSpinnerShown)
       }
     } else {
-      setShowSpinner(isSpinnerShown);
+      setShowSpinner(isSpinnerShown)
     }
-  }, [isSpinnerShown]);
+  }, [isSpinnerShown])
 
   if (showSpinner) {
     if (isShadowLoading) {
@@ -35,17 +39,13 @@ const WithSpinner: FC<IWithSpinner> = ({ children, isSpinnerShown = false, isSha
           </div>
           <Spinner />
         </>
-      );
+      )
     }
 
-    return <Spinner />;
+    return <Spinner />
   }
 
-  return (
-    <>
-      {children}
-    </>
-  );
-};
+  return <>{children}</>
+}
 
-export { WithSpinner };
+export { WithSpinner }

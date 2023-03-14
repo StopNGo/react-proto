@@ -1,13 +1,17 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react'
 
-import { PageMeta } from 'components';
-import { NOT_FOUND_TEXT, PAGE_NAMES } from 'constants/commonConstants';
+import { PageMeta } from 'components'
+import useTranslations from 'i18n/useTranslations'
 
-const NotFound: FC = (): ReactElement => (
-  <div className='main not-found'>
-    <PageMeta title={PAGE_NAMES.PAGE_NOT_FOUND} />
-    <h1>{NOT_FOUND_TEXT}</h1>
-  </div>
-);
+const NotFound: FC = (): ReactElement => {
+  const { t } = useTranslations()
 
-export { NotFound };
+  return (
+    <div className='main not-found'>
+      <PageMeta title={t.pageNames.pageNotFound} />
+      <h1>{t.notFoundText}</h1>
+    </div>
+  )
+}
+
+export { NotFound }

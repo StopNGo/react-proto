@@ -1,1 +1,1 @@
-export { WithSpinner } from 'hocs/withSpinner/WithSpinner';
+export { WithSpinner } from 'hocs/withSpinner/WithSpinner'

@@ -1,19 +1,20 @@
+import { FC, ReactElement } from 'react'
+import cn from 'classnames'
 
-import { FC, ReactElement } from 'react';
-import cn from 'classnames';
+import useTranslations from 'i18n/useTranslations'
 
-import { LOADABLE_TEXT } from 'constants/commonConstants';
-
-import styles from './loadableComponent.module.scss';
+import styles from './loadableComponent.module.scss'
 
 interface ILoadableComponent {
-  className?: string;
+  className?: string
 }
 
-const LoadableComponent: FC<ILoadableComponent> = ({ className }): ReactElement => (
-  <div className={cn(className, styles.loadable)}>
-    {LOADABLE_TEXT}
-  </div>
-);
+const LoadableComponent: FC<ILoadableComponent> = ({
+  className
+}): ReactElement => {
+  const { t } = useTranslations()
 
-export { LoadableComponent };
+  return <div className={cn(className, styles.loadable)}>{t.loadableText}</div>
+}
+
+export { LoadableComponent }

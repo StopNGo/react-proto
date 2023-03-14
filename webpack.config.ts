@@ -1,18 +1,18 @@
-import { IS_DEV } from './webpack/constants';
+import { IS_DEV } from './webpack/constants'
 
-import { clientConfig } from './webpack/client.config';
-import { serverConfig } from './webpack/server.config';
+import { clientConfig } from './webpack/client.config'
+import { serverConfig } from './webpack/server.config'
 
-const configs = [];
+const configs = []
 
 if (process.env.NO_SSR === 'true') {
-  configs.push(clientConfig);
+  configs.push(clientConfig)
 } else {
-  configs.push(serverConfig);
+  configs.push(serverConfig)
 
   if (!IS_DEV) {
-    configs.push(clientConfig);
+    configs.push(clientConfig)
   }
 }
 
-module.exports = configs;
+module.exports = configs

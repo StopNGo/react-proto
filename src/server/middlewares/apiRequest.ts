@@ -1,9 +1,11 @@
-import { pokemonApi } from 'api';
+import { pokemonApi } from 'api'
 
-const apiRequest = async (store: any) => {
-  store.dispatch(pokemonApi.endpoints.getPokemonSpriteById.initiate(1));
+const apiRequest = async (store: any): Promise<any[]> => {
+  store.dispatch(pokemonApi.endpoints.getPokemonSpriteById.initiate(1))
 
-  return Promise.all(store.dispatch(pokemonApi.util.getRunningQueriesThunk()));
-};
+  return await Promise.all(
+    store.dispatch(pokemonApi.util.getRunningQueriesThunk())
+  )
+}
 
-export { apiRequest };
+export { apiRequest }

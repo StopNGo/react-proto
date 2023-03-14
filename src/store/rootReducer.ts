@@ -1,15 +1,16 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import { counterReducer } from './counter/counterSlice';
-import { themeReducer } from './theme/themeSlice';
-import { pokemonApi } from 'api';
+import { combineReducers, Reducer } from '@reduxjs/toolkit'
+import { counterReducer } from './counter/counterSlice'
+import { themeReducer } from './theme/themeSlice'
+import { i18nReducer } from 'i18n/i18nSlice'
+import { pokemonApi } from 'api'
 
 export const rootReducer = {
   theme: themeReducer,
   counter: counterReducer,
-  [pokemonApi.reducerPath]: pokemonApi.reducer,
-};
-
-export function createReducer() {
-  return combineReducers(rootReducer);
+  i18n: i18nReducer,
+  [pokemonApi.reducerPath]: pokemonApi.reducer
 }
 
+export function createReducer (): Reducer {
+  return combineReducers(rootReducer)
+}

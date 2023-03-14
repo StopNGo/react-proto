@@ -1,0 +1,21 @@
+{
+  "appName": "App Name",
+  "pageNames": {
+    "about": "About",
+    "fetch": "Fetch",
+    "home": "Home",
+    "pageNotFound": "Page Not Found"
+  },
+  "aboutText": "About page",
+  "fetchText": "Fetch page",
+  "homeText": "Home page",
+  "homeButtonText": "Click Me",
+  "loadableText": "This is a loadable component",
+  "notFoundText": "Wrong page, sorry...",
+  "offlineText": "Offline",
+  "counterDescription": {
+    "local": "Local State",
+    "global": "Global State"
+  },
+  "themeSwitcherDescription": "Theme switcher"
+}

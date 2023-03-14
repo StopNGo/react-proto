@@ -11,10 +11,10 @@
   position: absolute;
   bottom: 0;
   display: block;
-}
 
-.name::first-letter {
-  text-transform: uppercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 
 .frame {

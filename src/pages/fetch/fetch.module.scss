@@ -1,7 +1,9 @@
+@use 'style/mixins' as *;
+
 .wrapper {
-  display: flex;
+  @include flex-center;
+
   width: 300px;
   height: 300px;
-  justify-content: center;
   margin: 20px 0;
 }

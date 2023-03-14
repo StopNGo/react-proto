@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self' pokeapi.co;
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+      default-src 'self' pokeapi.co localhost:*;
       base-uri 'self';
       block-all-mixed-content;
       font-src 'self' https: data:;
@@ -15,7 +16,8 @@
       script-src-attr 'none';
       style-src 'self' https: 'unsafe-inline';
       upgrade-insecure-requests
-    ">
+    "
+    />
     <title></title>
   </head>
 
@@ -25,5 +27,4 @@
     </noscript>
     <div id="root"></div>
   </body>
-
 </html>

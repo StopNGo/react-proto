@@ -1,8 +1,4 @@
-$primary_color: var(--primary_color);
-$secondary_color: var(--secondary_color);
-
-/*
-Note:
-Sass variables are not used in a sample application,
-so this file just for structural reference.
-*/
+$primary-font-family: 'Merriweather Sans';
+$primary-font: $primary-font-family, sans-serif;
+$secondary-font-family: 'Fjalla One';
+$secondary-font: $secondary-font-family, sans-serif;

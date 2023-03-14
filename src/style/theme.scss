@@ -1,15 +1,23 @@
 @mixin light-theme {
-  --bg-image: linear-gradient(to right top, #cfd9df 0%, #e2ebf0 100%);
-  --primary-color: #36535b;
-  --secondary-color: #769ea2;
-  --main-bg-color: #fff;
+  --bg-image: linear-gradient(
+    to right top,
+    rgb(207 217 223) 0%,
+    rgb(226 235 240) 100%
+  );
+  --primary-color: rgb(54 83 91);
+  --secondary-color: rgb(118 158 162);
+  --main-bg-color: rgb(255 255 255);
 }
 
 @mixin dark-theme {
-  --bg-image: linear-gradient(to right top, #1e1f20 0%, #333536 100%);
-  --primary-color: #e1f6fc;
-  --secondary-color: #9aabad;
-  --main-bg-color: rgb(19, 19, 19);
+  --bg-image: linear-gradient(
+    to right top,
+    rgb(30 31 32) 0%,
+    rgb(51 53 54) 100%
+  );
+  --primary-color: rgb(225 246 252);
+  --secondary-color: rgb(154 171 173);
+  --main-bg-color: rgb(19 19 19);
 }
 
 :root {
@@ -17,8 +25,8 @@
   --border-radius-small: 3px;
 
   @include light-theme;
-}
 
-:root .theme-dark {
-  @include dark-theme;
+  .theme-dark {
+    @include dark-theme;
+  }
 }

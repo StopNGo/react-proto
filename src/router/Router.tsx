@@ -1,13 +1,8 @@
-import { FC } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { FC } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
-import { ROUTE_CONSTANTS } from 'constants/routeConstants';
-import {
-  About,
-  Fetch,
-  Home,
-  NotFound,
-} from 'pages';
+import { ROUTE_CONSTANTS } from 'constants/routeConstants'
+import { About, Fetch, Home, NotFound } from 'pages'
 
 const Router: FC = () => (
   <Routes>
@@ -17,6 +12,6 @@ const Router: FC = () => (
     <Route path={ROUTE_CONSTANTS.ABOUT} element={<About />} />
     <Route path={ROUTE_CONSTANTS.NOT_FOUND} element={<NotFound />} />
   </Routes>
-);
+)
 
-export default Router;
+export default Router

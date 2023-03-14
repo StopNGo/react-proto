@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "es2021",
-    ],
+    "lib": ["dom", "es2022"],
+    "types": ["node", "jest", "webpack-env"],
     "module": "esnext",
-    "target": "es2021",
+    "target": "es2022",
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "importHelpers": true,
+    "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
@@ -25,30 +24,18 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "paths": {
-      "*": [
-        "./src/*",
-        "./*"
-      ],
-      "_webpack/*": [
-        "webpack/*"
-      ],
+      "*": ["./src/*", "./*"],
+      "_webpack/*": ["webpack/*"]
     },
     "plugins": [
       {
-        "name": "typescript-plugin-css-modules",
+        "name": "typescript-plugin-css-modules"
       }
-    ],
+    ]
   },
   "ts-node": {
     "compilerOptions": { "module": "commonjs" }
   },
-  "include": [
-    "src",
-    "webpack",
-    "webpack.config.ts",
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.js",
-  ],
+  "include": ["src", "webpack", "webpack.config.ts", "jest.config.ts"],
+  "exclude": ["node_modules", "**/*.js"],
 }

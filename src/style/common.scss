@@ -5,38 +5,39 @@ body,
   height: 100%;
 }
 
+* {
+  color: var(--secondary-color);
+  font-family: $primary-font;
+
+  > %headings {
+    color: var(--primary-color);
+    font-family: $secondary-font;
+  }
+}
+
 .app-wrapper {
   @include flex-center;
+
   width: 100%;
   min-height: 100vh;
   background: var(--bg-image) no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-}
 
-.app-wrapper > * {
-  transition: all .3s ease-out;
+  > * {
+    transition: all 0.3s ease-out;
+  }
 }
 
 @font-face {
-  font-family: 'Fjalla One';
+  font-family: $secondary-font-family;
   src: url('/src/assets/fonts/FjallaOne-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Merriweather Sans';
+  font-family: $primary-font-family;
   src: url('/src/assets/fonts/MerriweatherSans.ttf');
-}
-
-* {
-  color: var(--secondary-color);
-  font-family: 'Merriweather Sans', sans-serif;
-}
-
-* > %headings {
-  color: var(--primary-color);
-  font-family: 'Fjalla One', sans-serif;
 }
 
 a:hover {
@@ -50,4 +51,12 @@ a:hover {
   border-radius: var(--border-radius);
   background: var(--main-bg-color);
   box-shadow: 0 0 12px 0 rgb(0 0 0 / 22%);
+}
+
+.example {
+  color: blue;
+
+  &:hover {
+    color: rebeccapurple;
+  }
 }

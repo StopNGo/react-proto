@@ -1,2 +1,2 @@
-export { checkPage, isServer } from './helpers';
-export { renderWithProviders } from './testRedux';
+export { checkPage, isServer } from './helpers'
+export { renderWithProviders } from './testRedux'

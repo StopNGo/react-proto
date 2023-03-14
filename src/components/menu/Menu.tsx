@@ -1,42 +1,49 @@
-import { FC, ReactElement, memo } from 'react';
-import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
+import { FC, ReactElement, memo } from 'react'
+import { NavLink } from 'react-router-dom'
+import cn from 'classnames'
 
-import { PAGE_NAMES } from 'constants/commonConstants';
-import { ROUTE_CONSTANTS } from 'constants/routeConstants';
+import useTranslations from 'i18n/useTranslations'
+import { ROUTE_CONSTANTS } from 'constants/routeConstants'
 
-import styles from './menu.module.scss';
+import styles from './menu.module.scss'
 
 interface IMenu {
-  className?: string;
+  className?: string
 }
 
-const Menu: FC<IMenu> = ({ className }): ReactElement => (
-  <nav className={cn(styles.menu, className)}>
-    <NavLink
-      to={ROUTE_CONSTANTS.HOME}
-      end
-      className={({ isActive }) =>
-        isActive ? cn(styles.item, styles['item-active']) : styles.item
-      }
-    >{PAGE_NAMES.HOME}</NavLink>
+const Menu: FC<IMenu> = ({ className }): ReactElement => {
+  const { t } = useTranslations()
 
-    <NavLink
-      to={ROUTE_CONSTANTS.FETCH}
-      className={({ isActive }) =>
-        isActive ? cn(styles.item, styles['item-active']) : styles.item
-      }
-    >{PAGE_NAMES.FETCH}</NavLink>
+  return (
+    <nav className={cn(styles.menu, className)}>
+      <NavLink
+        to={ROUTE_CONSTANTS.HOME}
+        end
+        className={({ isActive }) =>
+          isActive ? cn(styles.item, styles['item-active']) : styles.item}
+      >
+        {t.pageNames.home}
+      </NavLink>
 
-    <NavLink
-      to={ROUTE_CONSTANTS.ABOUT}
-      className={({ isActive }) =>
-        isActive ? cn(styles.item, styles['item-active']) : styles.item
-      }
-    >{PAGE_NAMES.ABOUT}</NavLink>
-  </nav>
-);
+      <NavLink
+        to={ROUTE_CONSTANTS.FETCH}
+        className={({ isActive }) =>
+          isActive ? cn(styles.item, styles['item-active']) : styles.item}
+      >
+        {t.pageNames.fetch}
+      </NavLink>
 
-const memorizedMenu = memo(Menu);
+      <NavLink
+        to={ROUTE_CONSTANTS.ABOUT}
+        className={({ isActive }) =>
+          isActive ? cn(styles.item, styles['item-active']) : styles.item}
+      >
+        {t.pageNames.about}
+      </NavLink>
+    </nav>
+  )
+}
 
-export { memorizedMenu as Menu };
+const memorizedMenu = memo(Menu)
+
+export { memorizedMenu as Menu }

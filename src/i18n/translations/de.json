@@ -1,0 +1,21 @@
+{
+  "appName": "App-Name",
+  "pageNames": {
+    "about": "Über",
+    "fetch": "Abrufen",
+    "home": "Homepage",
+    "pageNotFound": "Seite nicht gefunden"
+  },
+  "aboutText": "Seite über",
+  "fetchText": "Seite abrufen",
+  "homeText": "Homepage",
+  "homeButtonText": "Klick mich",
+  "loadableText": "Dies ist eine ladbare Komponente",
+  "notFoundText": "Falsche Seite, Verzeihung...",
+  "offlineText": "Offline",
+  "counterDescription": {
+    "local": "Lokaler Stand",
+    "global": "Globaler Stand"
+  },
+  "themeSwitcherDescription": "Themenwechsler"
+}

@@ -1,31 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
-import { isServer } from 'utils';
+import { isServer } from 'utils'
 
-const hasFocus = () => isServer || document.hasFocus();
+const hasFocus = (): boolean => isServer || document.hasFocus()
 
 const useOnlineStatus = (): boolean => {
-  const [isOnline, setIsOnline] = useState(hasFocus);
+  const [isOnline, setIsOnline] = useState(hasFocus)
 
   useEffect(() => {
     window.addEventListener('offline', () => {
-      setIsOnline(false);
-    });
+      setIsOnline(false)
+    })
     window.addEventListener('online', () => {
-      setIsOnline(true);
-    });
+      setIsOnline(true)
+    })
 
     return () => {
       window.removeEventListener('offline', () => {
-        setIsOnline(false);
-      });
+        setIsOnline(false)
+      })
       window.removeEventListener('online', () => {
-        setIsOnline(true);
-      });
-    };
-  }, []);
+        setIsOnline(true)
+      })
+    }
+  }, [])
 
-  return isOnline;
-};
+  return isOnline
+}
 
-export { useOnlineStatus };
+export { useOnlineStatus }
