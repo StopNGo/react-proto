@@ -99,7 +99,6 @@ const clientConfig: Configuration = {
     }
   }),
   optimization: {
-    minimize: true,
     splitChunks: {
       cacheGroups: {
         vendor: {
