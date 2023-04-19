@@ -1,6 +1,6 @@
 const registerSW = async (): Promise<void> => {
   try {
-    const registration = await navigator.serviceWorker.register('/sw.js')
+    const registration = await navigator.serviceWorker.register('./sw.js')
     console.log(
       'ServiceWorker registration successful with scope: ',
       registration.scope
@@ -12,6 +12,12 @@ const registerSW = async (): Promise<void> => {
 
 export const startServiceWorker = (): void => {
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => registerSW)
+    window.addEventListener('load', () => {
+      (async () => {
+        await registerSW()
+      })().then(
+        () => {}
+      ).catch(er => console.log(er))
+    })
   }
 }

@@ -46,7 +46,7 @@ const runServer = (hotReload?: () => RequestHandler[]): void => {
 }
 
 if (IS_DEV) {
-  ;(async () => {
+  (async () => {
     const { hotReload, devMiddlewareInstance } = await import(
       './middlewares/hotReload'
     )
@@ -54,9 +54,8 @@ if (IS_DEV) {
       runServer(hotReload)
     })
   })().then(
-    () => {},
     () => {}
-  )
+  ).catch(er => console.log(er))
 } else {
   runServer()
 }

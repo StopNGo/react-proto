@@ -65,7 +65,10 @@ const plugins: WebpackPluginInstance[] = [
       ]),
   new CopyPlugin({
     patterns: [
-      { from: `${SRC_DIR}/i18n/translations`, to: 'lang' }
+      { from: `${SRC_DIR}/i18n/translations`, to: 'lang' },
+      ...(process.env.NO_SSR === 'true'
+        ? [{ from: `${SRC_DIR}/sw.js`, to: 'sw.js' }]
+        : [])
     ]
   })
 ]

@@ -1,4 +1,5 @@
 import { FC, ReactElement, useEffect } from 'react'
+import { useRoutes } from 'react-router-dom'
 import cn from 'classnames'
 
 import {
@@ -7,13 +8,14 @@ import {
   ErrorBoundary,
   Offline
 } from 'components'
-import Router from 'router/Router'
+import { routes } from 'router/Router'
 
 import { useAppSelector, useAppDispatch } from 'store/store'
 import { switchToDark } from 'store/theme/themeSlice'
 import { THEME_NAMES } from 'constants/commonConstants'
 
 const App: FC = (): ReactElement => {
+  const content = useRoutes(routes)
   const currentTheme = useAppSelector((state) => state.theme.theme)
   const dispatch = useAppDispatch()
 
@@ -37,7 +39,7 @@ const App: FC = (): ReactElement => {
         <LanguageSelector />
         <ThemeSwitcher />
         <Offline />
-        <Router />
+        {content}
       </div>
     </ErrorBoundary>
   )

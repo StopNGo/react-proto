@@ -37,9 +37,8 @@ if (
   }
 
   startServiceWorkerPromise().then(
-    () => {},
     () => {}
-  )
+  ).catch(er => console.log(er))
 }
 
 const indexJSX = (
@@ -63,7 +62,6 @@ if (NO_SSR) {
   loadableReady(() => {
     hydrateRoot(container, indexJSX)
   }).then(
-    () => {},
     () => {}
-  )
+  ).catch(er => console.log(er))
 }
