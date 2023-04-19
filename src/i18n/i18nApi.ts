@@ -12,6 +12,6 @@ export async function fetchTranslations (
       .then(
         (data) => resolve(data),
         () => {}
-      )
+      ).catch(er => console.log(er))
   })
 }
