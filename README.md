@@ -1,6 +1,6 @@
 # React Proto - React TypeScript Boilerplate
 
-![node.js@16](https://img.shields.io/badge/node.js-16-339933?style=for-the-badge&logo=nodedotjs) ![typescript@4](https://img.shields.io/badge/typescript-4-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.5](https://img.shields.io/badge/sass-1.5-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
+![node.js@21](https://img.shields.io/badge/node.js-21-339933?style=for-the-badge&logo=nodedotjs) ![typescript@5](https://img.shields.io/badge/typescript-5-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.6](https://img.shields.io/badge/sass-1.6-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
 
 <img align="right" width="100" src="src/assets/images/logo.png">
 
@@ -8,6 +8,16 @@
 
 This project is a compilation of different approaches in React development that allows not only to start a new project quickly, but to learn how it works under the hood.
 
+---
+- [Issue](#issue)
+- [What's Inside](#whats-inside)
+- [The App](#the-app)
+- [How to Use](#how-to-use)
+- [Basic Project Configuration](#basic-project-Configuration)
+- [General Notices](#general-notices)
+- [Documentation](#documentation)
+- [Changes](#changes)
+- [Feedback](#feedback)
 ---
 
 ## Issue
@@ -43,7 +53,7 @@ SSR:
 
 State:
 
-- **Redux** 4+
+- **Redux** 5 (with custom state persisting middleware; [why not redux-persist package?](#why-not-redux-persist-package))
 
 Router:
 
@@ -82,7 +92,9 @@ Other:
 
 - API request caching (powered by RTK Query)
 - Data prefetching on server side
+- State persisting to Local Storage
 - Hot reload (including state, style and server code hot reloading)
+- HOC for preventing component rendering on the server
 - VSCode support with error highlight and on save fixes
 - Script for fast component creation
 - Optional Service worker and offline status detector
@@ -174,7 +186,7 @@ ncu -u
 npm i
 ```
 
-## Basic App Configuration
+## Basic Project Configuration
 
 All configuration is available in files with constants:
 
@@ -182,6 +194,7 @@ All configuration is available in files with constants:
 - `src\constants` - a directory with app files with configuration constants
 - `src\server\constants.ts` - contains a server port and render to stream options
 
+## General Notices
 ### Why not Vite
 
 Vite is an excellent new generation bundler that could speed up your development process. However, you can face with some lack of flexibility and compatibility especially in big projects that need a lot of specific configurations. Also, webpack has many good plugins that are not compatible with Vite.
@@ -198,11 +211,14 @@ Preact is a fast and compact React-compatible Virtual DOM library. But because i
 
 |         | React     | Preact   |
 | ------- | --------- | -------- |
-| Parsed  | 278.75 KB | 164.82 KB |
-| Gzipped | 91.11 KB  | 55.59 KB |
+| Parsed  | 260.92 KB | 147.72 KB |
+| Gzipped | 86.22 KB  | 51.11 KB |
 
 ### Why not any common i18n package?
 You can freely integrate any React compatible i18n solution. But if React Proto already uses Redux and RTK, why just not use them for this task? Therefore, I have created a custom internationalization solution with a minimum additional code. It supports translations dynamic loading, server side rendering based on user acceptable languages, strict typing, etc. At the moment it just does not support string processing like pluralization, but it could easily be added later.
+
+### Why not redux-persist package?
+As for me this solution is overcomplicated in most of cases. It definitely has a lot of "storage engines", state version control and etc., but smart using of Redux Middlewares and Listeners can cover all this functionality in a more precise way.
 ## Documentation
 
 _Coming soon._

@@ -1,27 +1,33 @@
-import { FC, ReactElement, useState, ChangeEvent } from 'react'
+import { FC, ReactElement, useEffect, useState, ChangeEvent } from 'react'
 import cn from 'classnames'
 
 import styles from './dropdownSelector.module.scss'
 interface IDropdownSelector {
   options: string[]
+  value: string
   onChange: (selectedOption: string) => void
-  defaultOption: string
   className?: string
 }
 
 const DropdownSelector: FC<IDropdownSelector> = ({
   options,
+  value,
   onChange,
-  defaultOption,
   className
 }): ReactElement => {
-  const [selectedOption, setSelectedOption] = useState<string>(defaultOption)
+  const [selectedOption, setSelectedOption] = useState<string>(value)
 
   const handleOptionChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     const newOption = event.target.value
     setSelectedOption(newOption)
     onChange(newOption)
   }
+
+  useEffect(() => {
+    if (value !== selectedOption) {
+      setSelectedOption(value)
+    }
+  }, [value])
 
   return (
     <select

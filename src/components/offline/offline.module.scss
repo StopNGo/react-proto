@@ -2,11 +2,15 @@
   position: absolute;
   right: 20px;
   bottom: 20px;
+
   padding: 10px;
-  border-radius: var(--border-radius-small);
-  background-color: var(--main-bg-color);
+
   color: var(--secondary-color);
   text-transform: uppercase;
+
+  background-color: var(--main-bg-color);
+  border-radius: var(--border-radius-small);
+
   transition: opacity 0.3s ease-out;
 }
 

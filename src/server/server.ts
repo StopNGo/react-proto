@@ -46,16 +46,16 @@ const runServer = (hotReload?: () => RequestHandler[]): void => {
 }
 
 if (IS_DEV) {
-  (async () => {
+  ;(async () => {
     const { hotReload, devMiddlewareInstance } = await import(
       './middlewares/hotReload'
     )
     devMiddlewareInstance.waitUntilValid(() => {
       runServer(hotReload)
     })
-  })().then(
-    () => {}
-  ).catch(er => console.log(er))
+  })()
+    .then(() => {})
+    .catch((er) => console.log(er))
 } else {
   runServer()
 }

@@ -8,22 +8,45 @@ import { App } from './App'
 
 import { initStore } from 'store/store'
 import { Provider } from 'react-redux'
-import { USE_SERVICE_WORKER } from 'constants/commonConstants'
+import {
+  USE_SERVICE_WORKER,
+  localStorageAppKey
+} from 'constants/commonConstants'
 
 import { isServer } from 'utils'
 
 import 'style/main.scss'
 
-const store = initStore(
+const serverPreloadedState =
   !isServer && window.__PRELOADED_STATE__ != null
     ? window.__PRELOADED_STATE__
-    : undefined
-)
+    : {}
+
+let preloadedState = {
+  ...serverPreloadedState
+}
+
+if (NO_SSR && localStorage.getItem(localStorageAppKey) != null) {
+  /*
+    If it is NO SSR version, we can directly push persisted state
+    to the preloaded state.
+    Otherwise, check App.tsx file.
+  */
+  preloadedState = {
+    ...JSON.parse(localStorage.getItem(localStorageAppKey) as string)
+  }
+}
+
+const store = initStore(preloadedState)
 
 if (module.hot != null) {
-  module.hot.accept(['store/store', 'store/rootReducer'], () => async () => {
-    const { createReducer } = await import('store/rootReducer')
-    store.replaceReducer(createReducer())
+  module.hot.accept(['store/store', 'store/rootReducer'], () => {
+    ;(async () => {
+      const { mainReducer } = await import('store/rootReducer')
+      store.replaceReducer(mainReducer)
+    })()
+      .then(() => {})
+      .catch((er) => console.log(er))
   })
 }
 
@@ -36,9 +59,9 @@ if (
     startServiceWorker()
   }
 
-  startServiceWorkerPromise().then(
-    () => {}
-  ).catch(er => console.log(er))
+  startServiceWorkerPromise()
+    .then(() => {})
+    .catch((er) => console.log(er))
 }
 
 const indexJSX = (
@@ -61,7 +84,7 @@ if (NO_SSR) {
 } else {
   loadableReady(() => {
     hydrateRoot(container, indexJSX)
-  }).then(
-    () => {}
-  ).catch(er => console.log(er))
+  })
+    .then(() => {})
+    .catch((er) => console.log(er))
 }

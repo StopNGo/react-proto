@@ -1,7 +1,19 @@
+/*
+  Script for fast component creation.
+  Creates:
+    - .tsx file with template
+    - empty .module.scss file
+    - export component line in the components/index.ts file
+  Use it:
+    - node scripts/add-comp.js <name>
+
+  @param {string} name - component name in a form of folder name (comp-name, not CompName)
+*/
+
 import { access, mkdir, writeFile, appendFile } from 'fs'
 import { EOL } from 'os'
 
-const name = process.argv[2]
+const name = process.argv[2].replace(/[^a-z0-9_-]/gi, '_').toLowerCase().replace(/^[0-9]/g, '_$&')
 
 const compDir = 'src/components/'
 const path = `${compDir}${name}/`

@@ -5,3 +5,6 @@ export const enum THEME_NAMES {
   LIGHT = 'Light',
   DARK = 'Dark'
 }
+
+export const localStorageAppKey = 'appState'
+export const reduxHydrationAction = 'STATE_HYDRATE'

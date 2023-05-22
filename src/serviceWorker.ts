@@ -13,11 +13,11 @@ const registerSW = async (): Promise<void> => {
 export const startServiceWorker = (): void => {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      (async () => {
+      ;(async () => {
         await registerSW()
-      })().then(
-        () => {}
-      ).catch(er => console.log(er))
+      })()
+        .then(() => {})
+        .catch((er) => console.log(er))
     })
   }
 }

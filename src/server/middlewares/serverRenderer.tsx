@@ -1,4 +1,4 @@
-import { HelmetProvider, FilledContext } from 'react-helmet-async'
+import { HelmetProvider, HelmetServerState } from 'react-helmet-async'
 import { renderToPipeableStream, renderToString } from 'react-dom/server'
 import { Request, Response, RequestHandler } from 'express'
 import { StaticRouter } from 'react-router-dom/server'
@@ -61,6 +61,13 @@ const serverRenderer =
 
       const helmetContext = {}
 
+      /*
+        react-helmet-async forgot to export this interface after migrating to TypeScript in v2+.
+      */
+      interface HelmetDataContext {
+        helmet: HelmetServerState
+      }
+
       const jsx = (
         <Provider store={store}>
           <HelmetProvider context={helmetContext}>
@@ -74,7 +81,7 @@ const serverRenderer =
       if (IS_RENDER_TO_STREAM) {
         await getDataFromTree(jsx)
 
-        const { helmet } = helmetContext as FilledContext
+        const { helmet } = helmetContext as HelmetDataContext
 
         const { header, footer } = getHtmlTemplate({
           preloadedState,
@@ -104,7 +111,7 @@ const serverRenderer =
         })
       } else {
         const reactHtml = renderToString(jsx)
-        const { helmet } = helmetContext as FilledContext
+        const { helmet } = helmetContext as HelmetDataContext
 
         const { header, footer } = getHtmlTemplate({
           preloadedState,

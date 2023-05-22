@@ -6,12 +6,12 @@ body,
 }
 
 * {
-  color: var(--secondary-color);
   font-family: $primary-font;
+  color: var(--secondary-color);
 
   > %headings {
-    color: var(--primary-color);
     font-family: $secondary-font;
+    color: var(--primary-color);
   }
 }
 
@@ -20,6 +20,7 @@ body,
 
   width: 100%;
   min-height: 100vh;
+
   background: var(--bg-image) no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -48,8 +49,9 @@ a:hover {
   min-width: 280px;
   min-height: 200px;
   padding: 30px;
-  border-radius: var(--border-radius);
+
   background: var(--main-bg-color);
+  border-radius: var(--border-radius);
   box-shadow: 0 0 12px 0 rgb(0 0 0 / 22%);
 }
 

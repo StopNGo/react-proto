@@ -12,14 +12,21 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import { ThunkAction } from 'redux-thunk'
 
-import { rootReducer } from './rootReducer'
+import { rootReducer, mainReducer } from './rootReducer'
 import { pokemonApi } from 'api'
+import { persistStateToLocalStorage } from './middlewares'
+import { isServer } from 'utils'
+
+const middlewares = [
+  ...(!isServer ? [persistStateToLocalStorage(['counter', 'pokemonApi'])] : []),
+  pokemonApi.middleware
+]
 
 const initStore = (preloadedState?: Partial<RootState>): EnhancedStore =>
   configureStore({
-    reducer: rootReducer,
+    reducer: mainReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(pokemonApi.middleware),
+      getDefaultMiddleware().concat(middlewares),
     preloadedState,
     devTools: String(process.env.NODE_ENV).trim() !== 'production'
   })

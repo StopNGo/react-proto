@@ -1,8 +1,11 @@
-import { combineReducers, Reducer } from '@reduxjs/toolkit'
+import { combineReducers, AnyAction } from '@reduxjs/toolkit'
+
 import { counterReducer } from './counter/counterSlice'
 import { themeReducer } from './theme/themeSlice'
 import { i18nReducer } from 'i18n/i18nSlice'
 import { pokemonApi } from 'api'
+
+import { reduxHydrationAction } from 'constants/commonConstants'
 
 export const rootReducer = {
   theme: themeReducer,
@@ -11,6 +14,22 @@ export const rootReducer = {
   [pokemonApi.reducerPath]: pokemonApi.reducer
 }
 
-export function createReducer (): Reducer {
-  return combineReducers(rootReducer)
+export const appReducer = combineReducers(rootReducer)
+
+export const mainReducer: any = (
+  state: ReturnType<typeof appReducer>,
+  action: AnyAction
+) => {
+  /*
+    Global action for whole state hydration.
+  */
+  if (action?.type === reduxHydrationAction) {
+    const nextState = {
+      ...state,
+      ...action.payload
+    }
+    return nextState
+  }
+
+  return appReducer(state, action)
 }

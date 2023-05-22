@@ -20,7 +20,7 @@ const LanguageSelector: FC<ILanguageSelector> = ({
     <DropdownSelector
       className={cn(styles['language-selector'], className)}
       options={Object.values(supportedLangs)}
-      defaultOption={supportedLangs[lang]}
+      value={supportedLangs[lang]}
       onChange={(newLang) => setLang(newLang as keyof typeof supportedLangs)}
     />
   )

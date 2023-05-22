@@ -1,9 +1,12 @@
 .selector {
   position: relative;
+
   display: inline-block;
+
   height: 34px;
   padding: 0 5px;
+
+  background-color: var(--main-bg-color);
   border: none;
   border-radius: var(--border-radius-small);
-  background-color: var(--main-bg-color);
 }

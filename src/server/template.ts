@@ -35,8 +35,8 @@ export const getHtmlTemplate = (props: {
           <script nonce="${
             props.nonce
           }">window.__PRELOADED_STATE__ = ${serialize(
-    props.preloadedState
-  )}</script>
+            props.preloadedState
+          )}</script>
           ${props.scriptTags}
         </body>
       </html>

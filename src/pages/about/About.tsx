@@ -23,7 +23,7 @@ const About: FC = (): ReactElement => {
 
   return (
     <div className='main about'>
-      <PageMeta title={t.notFoundText} />
+      <PageMeta title={t.aboutText} />
       <h1>{tt('aboutText')}</h1>
       <Menu />
       <div className={styles.content}>
