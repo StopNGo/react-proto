@@ -40,7 +40,7 @@ const PageMeta: FC<Props> = (props: Props) => {
       <meta property='og:title' content={title} />
       <meta property='twitter:title' content={title} />
       {/*
-      Helmet supports only valid head tags, so it is inpossibel even
+      Helmet supports only valid head tags, so it is impossible even
       to use root tag <></> for inserting several head tags under one condition
       */}
       {description != null && <meta name='description' content={description} />}

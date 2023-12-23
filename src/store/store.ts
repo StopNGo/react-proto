@@ -3,7 +3,7 @@ import {
   Action,
   StateFromReducersMapObject,
   Dispatch,
-  AnyAction,
+  UnknownAction,
   EnhancedStore,
   ThunkDispatch
 } from '@reduxjs/toolkit'
@@ -36,8 +36,9 @@ export type RootState = StateFromReducersMapObject<typeof rootReducer>
 export type AppDispatch = Store['dispatch']
 export type AppThunk = ThunkAction<void, RootState, unknown, Action>
 
-export const useAppDispatch = (): Dispatch<AnyAction> &
-ThunkDispatch<RootState, undefined, AnyAction> => useDispatch<AppDispatch>()
+export const useAppDispatch = (): Dispatch<UnknownAction> &
+ThunkDispatch<RootState, undefined, UnknownAction> =>
+  useDispatch<AppDispatch>()
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export { initStore }

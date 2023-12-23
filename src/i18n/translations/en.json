@@ -17,5 +17,6 @@
     "local": "Local State",
     "global": "Global State"
   },
-  "themeSwitcherDescription": "Theme switcher"
+  "themeSwitcherDescription": "Theme switcher",
+  "languageSelectorDescription": "Language selector"
 }

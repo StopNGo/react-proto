@@ -5,6 +5,7 @@ import styles from './dropdownSelector.module.scss'
 interface IDropdownSelector {
   options: string[]
   value: string
+  description?: string
   onChange: (selectedOption: string) => void
   className?: string
 }
@@ -12,6 +13,7 @@ interface IDropdownSelector {
 const DropdownSelector: FC<IDropdownSelector> = ({
   options,
   value,
+  description,
   onChange,
   className
 }): ReactElement => {
@@ -34,6 +36,7 @@ const DropdownSelector: FC<IDropdownSelector> = ({
       className={cn(styles.selector, className)}
       value={selectedOption}
       onChange={handleOptionChange}
+      aria-label={description}
     >
       {options.map((option) => (
         <option key={option} value={option}>

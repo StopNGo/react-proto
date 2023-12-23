@@ -14,13 +14,14 @@ interface ILanguageSelector {
 const LanguageSelector: FC<ILanguageSelector> = ({
   className
 }): ReactElement => {
-  const { lang, supportedLangs, setLang } = useTranslations()
+  const { t, lang, supportedLangs, setLang } = useTranslations()
 
   return (
     <DropdownSelector
       className={cn(styles['language-selector'], className)}
       options={Object.values(supportedLangs)}
       value={supportedLangs[lang]}
+      description={t.languageSelectorDescription}
       onChange={(newLang) => setLang(newLang as keyof typeof supportedLangs)}
     />
   )

@@ -33,11 +33,13 @@ body,
 
 @font-face {
   font-family: $secondary-font-family;
+  font-display: swap;
   src: url('/src/assets/fonts/FjallaOne-Regular.ttf');
 }
 
 @font-face {
   font-family: $primary-font-family;
+  font-display: swap;
   src: url('/src/assets/fonts/MerriweatherSans.ttf');
 }
 

@@ -17,5 +17,6 @@
     "local": "Lokaler Stand",
     "global": "Globaler Stand"
   },
-  "themeSwitcherDescription": "Themenwechsler"
+  "themeSwitcherDescription": "Themenwechsler",
+  "languageSelectorDescription": "Sprachauswahl"
 }

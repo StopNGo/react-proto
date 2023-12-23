@@ -1,4 +1,4 @@
-import { combineReducers, AnyAction } from '@reduxjs/toolkit'
+import { combineReducers, UnknownAction } from '@reduxjs/toolkit'
 
 import { counterReducer } from './counter/counterSlice'
 import { themeReducer } from './theme/themeSlice'
@@ -18,7 +18,7 @@ export const appReducer = combineReducers(rootReducer)
 
 export const mainReducer: any = (
   state: ReturnType<typeof appReducer>,
-  action: AnyAction
+  action: UnknownAction
 ) => {
   /*
     Global action for whole state hydration.
@@ -26,7 +26,7 @@ export const mainReducer: any = (
   if (action?.type === reduxHydrationAction) {
     const nextState = {
       ...state,
-      ...action.payload
+      ...(action.payload as object)
     }
     return nextState
   }

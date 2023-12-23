@@ -3,14 +3,10 @@
     "stylelint-config-standard-scss",
     "stylelint-config-clean-order"
   ],
-  "plugins": [
-    "stylelint-use-nesting"
-  ],
   "rules": {
     "max-nesting-depth": 3,
     "declaration-property-value-no-unknown": true,
     "scss/selector-no-redundant-nesting-selector": true,
-    "csstools/use-nesting": "always",
     "selector-pseudo-class-no-unknown": [
       true,
       {
