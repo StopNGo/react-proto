@@ -97,6 +97,7 @@
   },
   "dependencies": {
     "@apollo/react-ssr": "4.0.0",
+    "@loadable/component": "^5.16.4",
     "@loadable/server": "5.16.2",
     "@loadable/webpack-plugin": "5.15.2",
     "@reduxjs/toolkit": "2.0.1",
@@ -104,6 +105,7 @@
     "compression": "1.7.4",
     "cookie-parser": "1.4.6",
     "cross-fetch": "4.0.0",
+    "graphql": "^16.8.1",
     "helmet": "7.1.0",
     "identity-obj-proxy": "3.0.0",
     "preact": "10.19.3",
