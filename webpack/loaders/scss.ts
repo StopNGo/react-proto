@@ -27,7 +27,9 @@ const universalLoader = (isServer: boolean = false): RuleSetRule => ({
                 This type of naming variant is better for gzip compression -
                 https://github.com/webpack-contrib/css-loader/issues/406
               */
-              localIdentName: '[folder]__[local]--[hash:base64:5]'
+              localIdentName: '[folder]__[local]--[hash:base64:5]',
+              namedExport: false,
+              exportLocalsConvention: 'as-is'
             }
           }
         },

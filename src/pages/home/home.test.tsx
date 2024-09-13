@@ -1,13 +1,11 @@
 import '@testing-library/jest-dom'
-// Need for proper typing
-import '@testing-library/jest-dom/extend-expect'
 // Need for fetching polyfill during testing
 import 'cross-fetch/polyfill'
 
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-// Using an utilty for rendering with Redux Provider
+// Using an utility for rendering with Redux Provider
 import { renderWithProviders } from 'utils'
 
 import { Home } from './Home'
