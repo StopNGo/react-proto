@@ -1,12 +1,14 @@
 # React Proto - React TypeScript Boilerplate
 
-![node.js@21](https://img.shields.io/badge/node.js-21-339933?style=for-the-badge&logo=nodedotjs) ![typescript@5](https://img.shields.io/badge/typescript-5-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.6](https://img.shields.io/badge/sass-1.6-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
+![node.js@22](https://img.shields.io/badge/node.js-22-339933?style=for-the-badge&logo=nodedotjs) ![typescript@5](https://img.shields.io/badge/typescript-5-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.7](https://img.shields.io/badge/sass-1.7-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
 
 <img align="right" width="100" src="src/assets/images/logo.png">
 
 **Template React project with full TypeScript and SSR support.**
 
 This project is a compilation of different approaches in React development that allows not only to start a new project quickly, but to learn how it works under the hood.
+
+You can also check a [React Proto Lite](https://github.com/StopNGo/react-proto-lite) - Template React project for fast SPA prototyping. It contains only everything necessary for Single Page Application projects without any server side parts.
 
 ---
 - [Issue](#issue)
@@ -235,6 +237,6 @@ I welcome any feedbacks, suggestions and questions related to this project.
 
 You can leave them on [issues](https://github.com/StopNGo/react-proto/issues) or [discussions](https://github.com/StopNGo/react-proto/discussions) pages.
 
-![Thank you!](http://media.riffsy.com/images/26d31721af290a7e42eae0498a4730a5/tenor.gif)
+![Thank you!](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTQ0MXQzcXBtaGhibWdqdW1tMGNnbmg3eTN5dnVuOG8xbGJndHBpOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3L3SEE1rcsO1W/giphy.gif)
 
 **Thank you!**
