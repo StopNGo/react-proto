@@ -2,7 +2,7 @@ import path from 'path'
 
 const IS_DEV: boolean = String(process.env.NODE_ENV).trim() === 'development'
 
-const IS_PREACT: boolean = false
+const IS_PREACT: boolean = true
 const IS_SWC: boolean = true
 const IS_LAZY_COMPILATION = false
 const DEV_SERVER_PORT: number = 8080

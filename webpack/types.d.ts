@@ -1,3 +1,3 @@
-import { RuleSetRule } from 'webpack/types'
+import { RuleSetRule } from 'webpack'
 
 export type TLoader = Record<'client' | 'server', RuleSetRule>
