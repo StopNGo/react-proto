@@ -1,6 +1,6 @@
 # React Proto - React TypeScript Boilerplate
 
-![node.js@22](https://img.shields.io/badge/node.js-22-339933?style=for-the-badge&logo=nodedotjs) ![typescript@5](https://img.shields.io/badge/typescript-5-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.7](https://img.shields.io/badge/sass-1.7-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
+![node.js@22](https://img.shields.io/badge/node.js-22-339933?style=for-the-badge&logo=nodedotjs) ![typescript@5](https://img.shields.io/badge/typescript-5-3178C6?style=for-the-badge&logo=typescript) ![reactjs@18](https://img.shields.io/badge/Reactjs-18-61DAFB?style=for-the-badge&logo=react) ![rspack@1](https://img.shields.io/badge/rspack-1-f0965b?style=for-the-badge) ![webpack@5](https://img.shields.io/badge/webpack-5-8dd6f9?style=for-the-badge&logo=webpack) ![sass@1.7](https://img.shields.io/badge/sass-1.7-CC6699?style=for-the-badge&logo=sass) ![ts-standard](https://img.shields.io/badge/standard-ts-F3DF49?style=for-the-badge&logo=standardjs)
 
 <img align="right" width="100" src="src/assets/images/logo.png">
 
@@ -9,6 +9,14 @@
 This project is a compilation of different approaches in React development that allows not only to start a new project quickly, but to learn how it works under the hood.
 
 You can also check a [React Proto Lite](https://github.com/StopNGo/react-proto-lite) - Template React project for fast SPA prototyping. It contains only everything necessary for Single Page Application projects without any server side parts.
+
+## Huge Update: Migrating to Rspack
+
+Starting from version `2.0.0`, this project uses [Rspack](https://rspack.dev/) as the primary bundler.
+
+Rspack is a high performance JavaScript bundler written in Rust. It offers strong compatibility with the webpack ecosystem, allowing for seamless replacement of webpack, and provides lightning fast build speeds.
+
+Webpack is still available as an option ([rspack vs webpack](#rspack-vs-webpack) and [switching back to webpack](#switching-back-to-webpack)).
 
 ---
 - [Issue](#issue)
@@ -26,7 +34,7 @@ You can also check a [React Proto Lite](https://github.com/StopNGo/react-proto-l
 
 Every new React developer knows that React is a library, not a complete framework. Thus, it provides maximum flexibility. However, a lot of knowledge is required to create a fully functional web application powered with React.
 
-That is why there exist such a famous framework as [Next.js](https://nextjs.org/) as well as a tool [Create React App (CRA)](https://create-react-app.dev/).
+That is why there exist such a famous framework as [Next.js](https://nextjs.org/) as well as a tool [Create React App (CRA)](https://create-react-app.dev/) or [Rsbuild for React](https://rsbuild.dev/guide/framework/react).
 
 Despite the advantages that such tools have, there are some cons that their user may face:
 
@@ -46,7 +54,7 @@ Thus, the goal of this project is to **collect in one place all the most common 
 Core:
 
 - **React** 18+ (**Preact** 10+ as an option, see [comparison](#react-vs-preact) below)
-- **webpack** 5+ (with optional **SWC** support and SSR or static build; [why not Vite?](#why-not-vite))
+- **Rspack** 1 (**webpack** 5+ as an option) with **SWC** support and SSR or static build ([why not Vite?](#why-not-vite), [rspack vs webpack](#rspack-vs-webpack) and [switching back to webpack](#switching-back-to-webpack))
 - **TypeScript** (with strict rules, including webpack configuration)
 
 SSR:
@@ -130,15 +138,17 @@ Live preview:
 
    `git clone https://github.com/StopNGo/react-proto`
 
-2. Install all packages:
+2. Delete the `_webpack` folder if you are not going to use webpack bundler or [switch to it](#switching-back-to-webpack) before installing the packages.
+
+3. Install all packages:
 
    `npm i`
 
-3. Run project in a development mode:
+4. Run project in a development mode:
 
    `npm start`
 
-4. Open your browser with the next address:
+5. Open your browser with the next address:
 
    `http://localhost:8080/`
 
@@ -176,6 +186,20 @@ Live preview:
 
   `npm run build:static:report`
 
+### Switching back to webpack
+
+- Copy the contents of `_webpack` folder (except `README.md`) to the root of the project.
+
+- Delete the `rspack.config.ts` file.
+
+- Delete the `rspack` and `_webpack` folders.
+
+- If you have a previous installation, clean the `node_modules` folder.
+
+- Then install the packages:
+
+   `npm i`
+
 ### Updating packages
 
 All packages in this project are pinned to latest versions at the time of publishing to exclude version-based conflicts and errors and to guarantee proper work of the code in this repository.
@@ -203,18 +227,42 @@ Vite is an excellent new generation bundler that could speed up your development
 
 As for the speed: you can check this article - [Storybook Performance: Vite vs Webpack](https://storybook.js.org/blog/storybook-performance-from-webpack-to-vite/). As you can see - Webpack could still be fast enough. React Proto has such configurations. In `webpack\constants.ts` you can switch on SWC and Lazy Compilation.
 
-Also, I'm looking forward to [Turbopack](https://turbo.build/pack) - the Rust-powered successor to Webpack. Now it is available only in Next.js, but I hope the future migration from the Wepback will be smooth because the principle of configuration should be the same.
+Starting from version `2.0.0`, this project uses [Rspack](https://rspack.dev/) as the primary bundler. This bundler written in Rust and offers strong compatibility with the webpack ecosystem, so, performance should be much better ([rspack vs webpack](#rspack-vs-webpack)).
 
+I'm also looking forward to [Turbopack](https://turbo.build/pack) — another Rust-powered successor to Webpack. Currently, it's available only in Next.js, but it might be released as a standalone CLI tool in the future.
+
+### Rspack vs webpack
+
+Rspack is a high performance JavaScript bundler written in Rust. It offers strong compatibility with the webpack ecosystem, allowing for seamless replacement of webpack, and provides lightning fast build speeds.
+
+Here is a comparison between Rspack 1 with the built-in SWC loader and Webpack 5+ with the external SWC loader, while building the SSR version of the sample application on the same hardware configuration:
+
+|         | Rspack     | webpack   |
+| ------- | --------- | -------- |
+| Server  | 5.35 s | 6.83 s |
+| Client | 5.32 s  | 7.50 s |
+
+Of course, the larger the project, the greater the performance advantage. However, if you need more webpack compatibility or hot module reloading while developing with [Preact](#react-vs-preact), you can always [switch back to the webpack bundler](#switching-back-to-webpack).
+
+Also, the optimization process of Rspack is currently slightly worse. Check the bundle size comparison for the non-SSR version of the sample application in this repository:
+
+|         | Rspack     | webpack   |
+| ------- | --------- | -------- |
+| Parsed  | 284.47 KB | 262.9 KB |
+| Gzipped | 90.29 KB  | 86.84 KB |
 ### React vs Preact
 
 In `webpack\constants.ts` you can choose to use [Preact](https://preactjs.com/) library instead React itself (`IS_PREACT` boolean constant).
 
-Preact is a fast and compact React-compatible Virtual DOM library. But because its community is much smaller, you can face with some incompatibility with React API and functionality, especially with new ones. Also some tests show some frame drops during moving a lot of elements. Below you can see a bundle size comparison of no-SSR version of the sample application of this repository (according to Webpack Bundle Analyzer):
+Preact is a fast and compact React-compatible Virtual DOM library. But because its community is much smaller, you can face with some incompatibility with React API and functionality, especially with new ones. Also some tests show some frame drops during moving a lot of elements. Below you can see a bundle size comparison of no-SSR version of the sample application of this repository that was built with Rspack (according to Webpack Bundle Analyzer):
 
 |         | React     | Preact   |
 | ------- | --------- | -------- |
 | Parsed  | 262.9 KB | 150.55 KB |
 | Gzipped | 86.84 KB  | 52.09 KB |
+
+**Important Note**
+At the moment, the Rspack version of the project does not support hot module reloading during development with Preact. Compared to Webpack, it requires some additional tricky configuration, which I will probably add in the near future. However, if you need HMR (and you definitely do!), you can develop your project using React and then build it with Preact. Or just [switch your project back to the webpack](#switching-back-to-webpack).
 
 ### Why not any common i18n package?
 You can freely integrate any React compatible i18n solution. But if React Proto already uses Redux and RTK, why just not use them for this task? Therefore, I have created a custom internationalization solution with a minimum additional code. It supports translations dynamic loading, server side rendering based on user acceptable languages, strict typing, etc. At the moment it just does not support string processing like pluralization, but it could easily be added later.

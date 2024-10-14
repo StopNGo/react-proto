@@ -1,7 +1,7 @@
 import helmet from 'helmet'
 import { randomUUID } from 'crypto'
 import { Response, Request, NextFunction } from 'express'
-import { IS_DEV } from 'rspack/constants'
+import { IS_DEV } from '_webpack/constants'
 
 const nonce = (_req: Request, res: Response, next: NextFunction): void => {
   res.locals.cspNonce = Buffer.from(randomUUID()).toString('base64')

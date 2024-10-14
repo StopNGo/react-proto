@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "es2022"],
-    "types": ["node", "jest", "@rspack/core/module"],
+    "types": ["node", "jest", "webpack-env"],
     "module": "esnext",
     "target": "es2022",
     "moduleResolution": "node",
@@ -24,7 +24,8 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "paths": {
-      "*": ["./src/*", "./*"]
+      "*": ["./src/*", "./*"],
+      "_webpack/*": ["webpack/*"]
     },
     "plugins": [
       {
@@ -35,6 +36,6 @@
   "ts-node": {
     "compilerOptions": { "module": "commonjs" }
   },
-  "include": ["src", "rspack", "rspack.config.ts", "jest.config.ts"],
-  "exclude": ["node_modules", "**/*.js"]
+  "include": ["src", "webpack", "webpack.config.ts", "jest.config.ts"],
+  "exclude": ["node_modules", "**/*.js"],
 }

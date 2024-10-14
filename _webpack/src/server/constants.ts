@@ -1,4 +1,4 @@
-import { DEV_SERVER_PORT, IS_DEV } from 'rspack/constants'
+import { DEV_SERVER_PORT, IS_DEV } from '_webpack/constants'
 
 export const SERVER_PORT: number = IS_DEV ? DEV_SERVER_PORT : 3000
 

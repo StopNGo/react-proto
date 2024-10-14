@@ -6,7 +6,7 @@ import { ChunkExtractor } from '@loadable/server'
 
 import { csp, serverRenderer, nonce } from 'server/middlewares'
 import { IS_RENDER_TO_STREAM, SERVER_PORT } from 'server/constants'
-import { DIST_DIR, IS_DEV, SRC_DIR } from 'rspack/constants'
+import { DIST_DIR, IS_DEV, SRC_DIR } from '_webpack/constants'
 
 const { PORT = SERVER_PORT } = process.env
 
