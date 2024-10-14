@@ -1,6 +1,6 @@
 {
   "name": "react-proto",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React TypeScript Boilerplate",
   "author": "Max L Stop&Go",
   "license": "ISC",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
+    "@prefresh/webpack": "4.0.1",
     "@svgr/webpack": "8.1.0",
     "@swc/core": "1.7.26",
     "@testing-library/jest-dom": "6.5.0",
@@ -41,6 +42,7 @@
     "@types/loadable__component": "5.13.9",
     "@types/loadable__server": "5.12.11",
     "@types/node": "22.7.5",
+    "@types/prefresh__webpack": "3.3.3",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
     "@types/react-helmet": "6.1.11",
